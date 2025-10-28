@@ -63,7 +63,7 @@ class Product(models.Model):
     product_price = models.DecimalField(max_digits=10, decimal_places= 2)
     product_color= models.ForeignKey(Color, on_delete=models.SET_NULL, null=True, blank=True)
     product_quantity = models.PositiveIntegerField(default=0, verbose_name="Internal Stock Quantity",)
-    sku = models.CharField(max_length=50, unique=True, verbose_name="Stock Keeping Unit")
+    product_sku = models.CharField(max_length=50, unique=True, verbose_name="Stock Keeping Unit")
     related_accessories = models.ManyToManyField('self',through='ProductAccessory',symmetrical=False,related_name='parent_products',blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
